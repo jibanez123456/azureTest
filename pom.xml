@@ -52,7 +52,7 @@
 				<configuration>
 					<schemaVersion>v2</schemaVersion>
 					<resourceGroup>azureTestGroup</resourceGroup>
-					<appName>azureTest-FREE-Juan-1978</appName>
+					<appName>azureTest-FREE-JPP</appName>
 					<region>West Europe</region>
 					<pricingTier>F1</pricingTier>
 					<runtime>
