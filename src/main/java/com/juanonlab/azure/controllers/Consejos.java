@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.juanonlab.azure.pojo.Response;
+import com.juanonlab.azure.pojo.Consejo;
 
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.PATCH })
 @RestController
@@ -23,8 +23,8 @@ public class Consejos {
 	private String tip2;
 
 	@GetMapping("/consejos")
-	public ResponseEntity<Response> frases() {
-		return new ResponseEntity<>(new Response("Consejos : " + tip1 + ", " + tip2), HttpStatus.OK);
+	public ResponseEntity<Consejo> frases() {
+		return new ResponseEntity<>(new Consejo(tip1 + ", " + tip2), HttpStatus.OK);
 	}
 
 }
