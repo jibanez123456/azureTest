@@ -2,18 +2,23 @@ package com.juanonlab.azure.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.juanonlab.azure.pojo.NumeroRefranes;
 import com.juanonlab.azure.pojo.Refran;
+import com.juanonlab.azure.pojo.RefranResponse;
 import com.juanonlab.azure.service.RefranService;
 
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.PATCH })
@@ -42,6 +47,12 @@ public class Refranes {
 	@GetMapping("/refranes/random")
 	public ResponseEntity<Refran> refranRandom() {
 		return new ResponseEntity<>(refranService.getRefranRandom(), HttpStatus.OK);
+	}
+
+	@PostMapping("/refran/add")
+	public ResponseEntity<RefranResponse> addRefran(@Valid @RequestBody final Refran refran) {
+		final String respuesta = refranService.addRefran(refran) == 0 ? " Refran insertado " : " Error al insertar";
+		return new ResponseEntity<>(new RefranResponse(respuesta), HttpStatus.OK);
 	}
 
 }

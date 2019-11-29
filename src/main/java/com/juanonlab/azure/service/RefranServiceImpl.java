@@ -39,4 +39,10 @@ public class RefranServiceImpl implements RefranService {
 	public int getnumRefranes() {
 		return initData.getRefranes().size();
 	}
+
+	@Override
+	public int addRefran(Refran refran) {
+		initData.getRefranes().add(refran);
+		return 0;
+	}
 }

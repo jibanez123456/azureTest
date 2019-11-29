@@ -13,4 +13,6 @@ public interface RefranService {
 	public List<Refran> getRefranes(int numeroRefranes);
 
 	public int getnumRefranes();
+
+	public int addRefran(Refran refran);
 }
